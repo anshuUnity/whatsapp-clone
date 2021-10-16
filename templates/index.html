@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}WhatsApp{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="back-container">
+    <div class="container-fluid front-container">
+        <div class="back-top"></div>
+        <div class="back-main"></div>
+    </div>
+    <div class="container front-container1">
+        <div class="row">
+            <div class="col-sm-4 contacts">
+                <div class="contact-table-scroll">
+                    <table class="table table-hover">
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td><img src="{% static 'assets/dp.png' %}" alt="" class="profile-image rounded-circle">
+                                </td>
+                                <td><a href="{% url 'chat' username=user.username%}">{{user.username}}</a></td>
+                            </tr>
+                            {% endfor %}
+
+                            <!-- end -->
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
