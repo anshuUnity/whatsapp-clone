@@ -21,5 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include(('accounts.urls', 'accounts'), namespace='accounts')),
     path('', index, name='home'),
-    path('<str:username>/', chatPage, name='chat'),
+    path('chat/<str:username>/', chatPage, name='chat'),
 ]
